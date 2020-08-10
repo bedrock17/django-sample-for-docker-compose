@@ -27,13 +27,14 @@ services:
       - DJANGO_DB_PASSWORD=samplesecret
       - DJANGO_SECRET_KEY=dev_secret_key
     ports:
-      - "8000:8000"
+      - "8888:8888"
     command:
       - bash
       - -c
       - |
+        python manage.py makemigrations
         python manage.py migrate
-        python manage.py runserver 0:8000
+        python manage.py runserver 0:8888
     restart: always
     volumes:
       - ./:/app/

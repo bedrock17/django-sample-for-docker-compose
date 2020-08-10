@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title> LIST </title>
+    </head>
+    <body>
+        <ul>
+            <a href="/"> Home </a>
+            <h1> totla {{Length}} </h1>
+            {% for item in BoardList %}
+                <li> {{item.title}} </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+from django.shortcuts import render, redirect, get_object_or_404
+
+# Create your views here.
+
+from django.http import HttpResponse
+
+from django.contrib.auth.models import User
+from django.contrib.auth import login, logout, authenticate
+
+from .models import Board
+
+def index(request):
+    return render(request, 'index.html')
+
+def write(request):
+    if request.method == "GET":
+        return render(request, 'write.html')
+    else:
+        try:
+            title = request.POST["title"]
+            content = request.POST["content"]
+            b = Board(title=title, content=content, user=request.user)
+            
+            b.save()
+            return redirect("/list")
+
+        except Exception as e:
+            return HttpResponse("ERROR " + str(e))
+
+def list(request):
+    boardList = Board.objects.filter(user=request.user)
+    context = {"BoardList": boardList, "Length": len(boardList)}
+    return render(request, 'list.html', context)
+
+def signup(request):
+    if request.method == "GET":
+        return render(request, "signup.html")
+    else:
+        id = request.POST["id"]
+        password = request.POST["password"]
+
+        print("=====[%s]==[%s:%s]", request.method, id, password)
+        
+        try:
+            user = User.objects.create_user(username=id, password=password)
+            user.save()
+            login(request, user)
+            return redirect("/")
+
+        except Exception as e:
+            error_msg = {"msg": 'Username is already taken. Please choose a different Username. %s'%{str(e)}}
+            msg = error_msg["msg"]
+            return render(request, "signup.html", error_msg)
+
+    error_msg = {"msg": '????'}
+    msg = "???"
+    return render(request, "signup.html", error_msg)
+        
+
+def userList(request):
+    return HttpResponse("<html> <h1> Hello </h1> </html>")

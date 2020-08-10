@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title> INDEX </title> 
+    </head>
+    <body>
+        
+        {% if user.is_authenticated %}
+        <h1> {{ user }} </h1> <br>
+        <a href="/write"> WRITE</a> <br>
+        <a href="/list"> LIST </a> <br>
+
+        {% else %}
+        <a href="/login"> LOGIN </a> <br>
+        <a href="/signup"> SIGN UP</a>
+        {% endif %}
+        
+    </body>
+</html>
