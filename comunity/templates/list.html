@@ -5,9 +5,9 @@
     <body>
         <ul>
             <a href="/"> Home </a>
-            <h1> totla {{Length}} </h1>
+            <h1> total {{Length}} </h1>
             {% for item in BoardList %}
-                <li> {{item.title}} </li>
+            <li> <a href="{% url 'read' item.id %}">{{item.title}} [{{item.user}}] </a> </li>
             {% endfor %}
         </ul>
     </body>

@@ -27,6 +27,8 @@ DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = ['*']
 
+LOGIN_URL = "/login"
+LOGIN_REDIRECT_URL = "/login"
 
 # Application definition
 

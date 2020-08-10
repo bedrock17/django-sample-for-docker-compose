@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title> INDEX </title>
+        <title> WRITE </title>
     </head>
     
     <body>
@@ -8,7 +8,8 @@
         <form action="/write" method="POST">
             {% csrf_token %}
             TITLE: <input type="text" name="title">
-            CONTENT: <input type="text" name="content">
+            <hr>
+            <textarea name="content" cols="100" rows="20" width="100%"> </textarea> <br>
             <input type="submit">
         </form>
     </body>

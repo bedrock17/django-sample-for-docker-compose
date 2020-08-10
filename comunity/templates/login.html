@@ -1,19 +1,15 @@
+
 <html>
     <head>
-        <title> SIGN UP </title> 
+        <title> LOGIN </title> 
     </head>
     <body>
-        <h1> SIGN UP PAGE </h1> <br>
-
-        <form method="POST" action="/signup">
+        <h1> LOGIN PAGE </h1> <br>
+        <form method="POST" action="/login">
             {% csrf_token %}
             ID <input name="id" type="text"> <br>
             PASSWORD <input name="password" type="password"> <br>
             <input type="submit">
         </form>
-
-        {% if msg %}
-        <h1> {{msg}} </h1>
-        {% endif %}
     </body>
 </html>

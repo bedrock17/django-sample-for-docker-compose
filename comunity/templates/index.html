@@ -6,8 +6,10 @@
         
         {% if user.is_authenticated %}
         <h1> {{ user }} </h1> <br>
-        <a href="/write"> WRITE</a> <br>
+        <a href="/logout"> LOGOUT </a> <br>
+        <a href="/write"> WRITE </a> <br>
         <a href="/list"> LIST </a> <br>
+        <a href="/listall"> LIST ALL </a> <br>
 
         {% else %}
         <a href="/login"> LOGIN </a> <br>
