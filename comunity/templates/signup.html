@@ -1,8 +1,10 @@
-<html>
-    <head>
+{% extends 'base.html' %}       
+
+{% block headContent %}
         <title> SIGN UP </title> 
-    </head>
-    <body>
+{% endblock %}
+
+{% block content%}       
         <h1> SIGN UP PAGE </h1> <br>
 
         <form method="POST" action="/signup">
@@ -15,5 +17,5 @@
         {% if msg %}
         <h1> {{msg}} </h1>
         {% endif %}
-    </body>
-</html>
+{% endblock %}
+

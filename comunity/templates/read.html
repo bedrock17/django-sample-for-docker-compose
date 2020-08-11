@@ -1,24 +1,20 @@
+{% extends 'base.html' %}       
 
-<html>
-    <head>
-        <title> READ </title> 
-    </head>
-    <body>
-        <a href="/"> Home </a> <br>
-        <h1> {{data.title}} </h1>
+{% block headContent %}
+<title> READ </title> 
+{% endblock %}
 
-        <hr>
-
-        <pre>
+{% block content%}       
+<h1> {{data.title}} </h1>
+<hr>
+<pre>
         {{data.content}}
-        </pre>
+</pre>
+<hr>
 
-        <hr>
-        
-        {% if deletable %}
-        <a href="{% url 'delete' data.id %}"> DELETE </a>
-        <a href="{% url 'edit' data.id %}"> EDIT </a>
-        {% endif %}
+{% if deletable %}
+<a href="{% url 'delete' data.id %}"> DELETE </a>
+<a href="{% url 'edit' data.id %}"> EDIT </a>
+{% endif %}
+{% endblock %}
 
-    </body>
-</html>

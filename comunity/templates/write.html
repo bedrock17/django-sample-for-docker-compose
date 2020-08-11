@@ -1,10 +1,10 @@
-<html>
-    <head>
+{% extends 'base.html' %}       
+
+{% block headContent %}
         <title> WRITE </title>
-    </head>
-    
-    <body>
-        <a href="/"> Home </a>
+{% endblock %}
+
+{% block content%}       
         <form action="/write" method="POST">
             {% csrf_token %}
             TITLE: <input type="text" name="title">
@@ -12,5 +12,5 @@
             <textarea name="content" cols="100" rows="20" width="100%"> </textarea> <br>
             <input type="submit">
         </form>
-    </body>
-</html>
+{% endblock %}
+

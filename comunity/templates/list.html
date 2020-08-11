@@ -1,14 +1,24 @@
-<html>
-    <head>
-        <title> LIST </title>
-    </head>
-    <body>
-        <ul>
-            <a href="/"> Home </a>
-            <h1> total {{Length}} </h1>
-            {% for item in BoardList %}
-            <li> <a href="{% url 'read' item.id %}">{{item.title}} [{{item.user}}] </a> </li>
-            {% endfor %}
-        </ul>
-    </body>
-</html>
+{% extends 'base.html' %}       
+
+{% block headContent %}
+<title> LIST </title>
+{% endblock %}
+
+{% block content%}       
+<ul>
+    <p> {{Length}} </p>
+    <table class="table table-bordered">
+        <tr>
+            <th> TITLE </th>
+            <th> WRITER </th>
+        </tr>
+    {% for item in BoardList %}
+        <tr>
+            <td> <a href="{% url 'read' item.id %}">{{item.title}} </a> </td>
+            <td> {{item.user}} </td>
+        </tr>
+    {% endfor %}
+    </table>
+</ul>
+{% endblock %}
+
